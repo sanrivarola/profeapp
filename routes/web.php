@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Student\Slots\Browse;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/reservar', fn() => view('student.slots.browse'))
          ->name('student.slots');
+         
+    Route::get('/student/slots', Browse::class)
+     ->middleware('auth')
+     ->name('student.slots.browse');
 });
 
 require __DIR__.'/auth.php';
